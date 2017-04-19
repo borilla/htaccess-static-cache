@@ -1,4 +1,4 @@
-# htaccess-test
+# htaccess-static-cache
 
 Present cached static HTML from file system without having to invoke the PHP interpreter, using `.htaccess` rewrite rules
 
