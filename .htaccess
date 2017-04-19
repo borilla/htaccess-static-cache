@@ -4,11 +4,11 @@ Header add "disablevcache" "true"
 <ifModule mod_rewrite.c>
 RewriteEngine on
 
-# if path doesn't include /cache/ and doesn't have a querystring then add it
-RewriteCond %{QUERY_STRING} !.
+# if path doesn't include /cache/ then add it
 RewriteCond %{REQUEST_URI} \.html$ [NC]
 RewriteCond %{REQUEST_URI} !/cache/
-RewriteRule ^(.*)$ cache/$1
+RewriteCond %{QUERY_STRING} !.
+RewriteRule (.*) cache/$1
 
 # if html file doesn't exist then use index.php
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -17,6 +17,6 @@ RewriteRule \.html$ index.php [L,NC]
 # only allow access to certain file-types
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteCond %{REQUEST_URI} !\.(html|jpe?g|png|gif|css|js)$ [NC]
-RewriteRule . - [L,NS,R=404]
+RewriteRule . - [L,R=404]
 
 </ifModule>
