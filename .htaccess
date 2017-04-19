@@ -4,7 +4,8 @@ Header add "disablevcache" "true"
 <ifModule mod_rewrite.c>
 RewriteEngine on
 
-# if path doesn't include /cache/ then add it
+# if path doesn't include /cache/ and doesn't have a querystring then add it
+RewriteCond %{QUERY_STRING} !.
 RewriteCond %{REQUEST_URI} \.html$ [NC]
 RewriteCond %{REQUEST_URI} !/cache/
 RewriteRule ^(.*)$ cache/$1

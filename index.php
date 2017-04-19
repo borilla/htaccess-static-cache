@@ -27,9 +27,9 @@ Test links:
 <li><a href="index.php">index.php</a> (access to .php files not allowed)</li>
 <li><a href="image.jpg">image.jpg</a> (is allowed)</li>
 </ul>
-Links with querystrings:
+Links with querystrings (won't use cached version):
 <ul>
-<li><a href="cached.html?q=1">cached.html?q=1</a> (will be rewritten to cache/cached.html)</li>
+<li><a href="cached.html?q=1">cached.html?q=1</a> (will rewrite to index.php)</li>
 <li><a href="not-cached.html?q=1">not-cached.html?q=1</a> (will rewrite to index.php)</li>
 <li><a href="image.jpg?q=1">image.jpg?q=1</a> (is allowed)</li>
 </ul>
