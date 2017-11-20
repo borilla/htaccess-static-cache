@@ -10,7 +10,7 @@ has been tested to work correctly. See [test page](#test-page) below
 If request is for a `*.html` page then it prepends `/cache/` directory to see if a cached version of the page already exists
 as a static file within that directory. If so, then the cached file is presented; if not then rewrites to `index.php`, eg
 
-* accessing `cached.html` will present content from `cache/article.html`
+* accessing `article.html` will present content from `cache/article.html` (assuming `cache/article.html` exists)
 * accessing `not-cached.html` will present output from `index.php`
 
 In a real working program, when `index.php` ouputs a new HTML page, it would also write a copy to the `cache` directory,
